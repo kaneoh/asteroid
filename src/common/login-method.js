@@ -4,7 +4,7 @@ export function onLogin ({id, token}) {
     this.userId = id;
     this.loggedIn = true;
     return multiStorage.set(this.endpoint + "__login_token__", token)
-        .then(this.emit.bind(this, "loggedIn", id))
+        .then(this.emit.bind(this, "loggedIn", id, token))
         .then(() => id);
 }
 
